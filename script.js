@@ -9,7 +9,6 @@ function getComputerChoice() {
     let comChoiceAction = comChoice.toLowerCase();
     return(comChoiceAction);
 }
-console.log(getComputerChoice());
 
 // Computer Choice End ###########################################
 
@@ -26,13 +25,14 @@ function singleRound(playerSelection,computerSelection) {
     let Paper = playerSelectionTwo === 'paper';
     let Scissors = playerSelectionTwo === 'scissors';
 
-    let ComRock = getComputerChoice() === 'rock';
-    let ComScissor = getComputerChoice ()=== 'scissors';
-    let ComPaper = getComputerChoice() === 'paper';
 
-    if (getComputerChoice() === 'rock') {
-        // Bookmark
-    }
+    computerSelection = getComputerChoice();
+    console.log(computerSelection);
+
+    let ComRock =  computerSelection === 'rock';
+    let ComScissor = computerSelection === 'scissors';
+    let ComPaper = computerSelection === 'paper';
+
 
     // Dashboard Function
     function dashboard(){
@@ -40,13 +40,13 @@ function singleRound(playerSelection,computerSelection) {
         let ComScore = 0;
 
         if (Rock && ComScissor || Paper && ComRock || Scissors && ComPaper ){
-            let UserScoreAdd = `Your current score is: ${UserScore + 1}`;
-            console.log(UserScoreAdd);
+            let UserScoreAdd = `You won, your current score is: ${UserScore + 1}`;
+            console.log(UserScoreAdd + ' \n' + ComScore);
         } else if (ComRock && Scissors || ComPaper && Rock || ComScissor && Paper) {
             let ComScoreAdd = `Computer has a score of ${ComScore + 1} points`;
-            console.log(ComScoreAdd);
+            console.log(ComScoreAdd + ' \n' + ComScore);
         } else {
-            // console.log(UserScore+ ' ' + ComScore);
+            console.log(UserScore+ ' \n' + ComScore);
         }   
     }
     dashboard();
@@ -58,3 +58,5 @@ function singleRound(playerSelection,computerSelection) {
 
 }
 singleRound();
+
+// Single Round End ###########################################
